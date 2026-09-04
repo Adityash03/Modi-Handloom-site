@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+  }
+  ::selection {
+    @apply bg-turmeric/30;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-body text-xs tracking-widest2 uppercase text-indigo/70;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-indigo text-kora px-6 py-3 text-sm tracking-wide uppercase font-body hover:bg-indigo-dark transition-colors duration-200;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 border border-ink/70 text-ink px-6 py-3 text-sm tracking-wide uppercase font-body hover:bg-ink hover:text-kora transition-colors duration-200;
+  }
+  .btn-madder {
+    @apply inline-flex items-center justify-center gap-2 bg-madder text-kora px-6 py-3 text-sm tracking-wide uppercase font-body hover:bg-madder-dark transition-colors duration-200;
+  }
+  .input-field {
+    @apply w-full bg-surface border border-line px-4 py-3 text-sm text-ink placeholder:text-ink/40 focus:outline-none focus:border-indigo transition-colors duration-150;
+  }
+  .container-page {
+    @apply max-w-7xl mx-auto px-5 sm:px-8;
+  }
+}
