@@ -1,4 +1,4 @@
-const SERVER_URL = import.meta.env.VITE_API_URL || 'https://modi-handloom-site.onrender.com';
+const SERVER_URL = process.env.SERVER_URL || 'http://localhost:5000';
 
 const local = (filename) => `${SERVER_URL}/uploads/products/${filename}`;
 
