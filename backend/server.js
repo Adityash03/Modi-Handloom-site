@@ -20,6 +20,8 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
   process.env.CLIENT_URL,
+  'https://modi-handloom-site-fg3mmd306-nemesis-37c5.vercel.app',
+  'https://modi-handloom-site-git-main-nemesis-37c5.vercel.app',
 ].filter(Boolean);
 
 app.use(
