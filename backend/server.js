@@ -17,13 +17,25 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-app.use(cors());
+const allowedOrigins = [
+  'http://localhost:5173',
+  process.env.CLIENT_URL,
+].filter(Boolean);
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'https://modi-handloom-site.vercel.app/',
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      callback(new Error(`Not allowed by CORS: ${origin}`));
+    },
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
   })
 );
+
 app.use(express.json());
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));

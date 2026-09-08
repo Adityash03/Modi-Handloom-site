@@ -32,9 +32,10 @@ const Home = () => {
     const load = async () => {
       try {
         const { data } = await api.get('/products', { params: { featured: true, limit: 8 } });
-        setFeatured(data.products);
+        console.log('feature products:', data);
+        setFeatured(data);
       } catch (err) {
-        console.error(err);
+        console.error('feature products error:', err);
       } finally {
         setLoading(false);
       }
